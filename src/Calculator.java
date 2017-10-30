@@ -77,25 +77,19 @@ public class Calculator {
 	 * @return (Stack)calculationStack.
 	 */
 	private Stack< Object > calculationPostOrder(Stack< Object > calculationStack) {
-		
 		if (calculationStack.lastElement().getClass().equals(BigDecimal.class)) return calculationStack;
-		
 		BigDecimal op1 = null;
 		BigDecimal op2 = null;
 		String opcode = null;
-		
-		if(calculationStack.size() >= 2) {
-			
+		if(calculationStack.size() >= 2) {			
 			opcode = (String) calculationStack.pop();
 			op1 = (BigDecimal) calculationStack.pop();
-			
 			if(!opCodeCheck(opcode)) {
 				op2 = (BigDecimal) calculationStack.pop();
 			}
 			BigDecimal result = calculateByOpCode(op1,op2,opcode);
 			calculationStack.push(result);
 		}
-		
 		return calculationStack;
 	}
 	
@@ -116,79 +110,54 @@ public class Calculator {
 	 * @return (BicDecimal).
 	 */
 	private BigDecimal calculateByOpCode(BigDecimal op1, BigDecimal op2, String opcode) {
-		if (OPERATION_ARITH[0].equals(opcode)) {
-			// Add
-			return op1.add(op2);
-		} else if (OPERATION_ARITH[1].equals(opcode)){
-			// Subtract
-			return op1.subtract(op2);
-		} else if (OPERATION_ARITH[2].equals(opcode)) {
-			// Multiply
-			return op1.multiply(op2);
-		} else if (OPERATION_ARITH[3].equals(opcode)) {
-			// Divide
-			op2.divide(op1,HALF_ROUND_UP, BigDecimal.ROUND_HALF_UP);
-		} else if (OPERATION_ARITH[4].equals(opcode)) {
-			// Power
-			op2.pow(op1.intValue());
-		} else if (OPERATION_ARITH[5].equals(opcode)) {
-			// Remain
-			return op2.remainder(op1);
-		} else if (OPERATION_FACTORIAL[0].equals(opcode)) {
-			// Factorial
-			return calculateFactorial(op1);
-		} else if (WORDOPERATION_ONENUMBER[0].equals(opcode)) {
-			// sin
-			return BigDecimal.valueOf(Math.sin(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[1].equals(opcode)) {
-			// sinh
-			return BigDecimal.valueOf(Math.sinh(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[2].equals(opcode)) {
-			// asin
-			return BigDecimal.valueOf(Math.asin(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[3].equals(opcode)) {
-			// cos
-			return BigDecimal.valueOf(Math.cos(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[4].equals(opcode)) {
-			// cosh
-			return BigDecimal.valueOf(Math.cosh(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[5].equals(opcode)) {
-			// acos
-			return BigDecimal.valueOf(Math.acos(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[6].equals(opcode)) {
-			// tan
-			return BigDecimal.valueOf(Math.tan(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[7].equals(opcode)) {
-			// tanh
-			return BigDecimal.valueOf(Math.tanh(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[8].equals(opcode)) {
-			// atan
-			return BigDecimal.valueOf(Math.atan(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[9].equals(opcode)) {
-			// sqrt
-			return BigDecimal.valueOf(Math.sqrt(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[10].equals(opcode)) {
-			// exp
-			return BigDecimal.valueOf(Math.exp(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[11].equals(opcode)) {
-			// abs
-			return BigDecimal.valueOf(Math.abs(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[12].equals(opcode)) {
-			// log
-			return BigDecimal.valueOf(Math.log(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[13].equals(opcode)) {
-			// ceil
-			return BigDecimal.valueOf(Math.ceil(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[14].equals(opcode)) {
-			// floor
-			return BigDecimal.valueOf(Math.floor(op1.doubleValue()));
-		} else if (WORDOPERATION_ONENUMBER[15].equals(opcode)) {
-			// round
-			return BigDecimal.valueOf(Math.round(op1.doubleValue()));
-		} else if (WORDOPERATION_TWONUMBER[0].equals(opcode)) {
-			// power
-			return op2.pow(op1.intValue());
-		}
+		// Add
+		if (OPERATION_ARITH[0].equals(opcode)) return op1.add(op2);
+		// Subtract
+		else if (OPERATION_ARITH[1].equals(opcode)) return op1.subtract(op2);
+		// Multiply
+		else if (OPERATION_ARITH[2].equals(opcode)) return op1.multiply(op2);
+		// Divide
+		else if (OPERATION_ARITH[3].equals(opcode)) return op2.divide(op1,HALF_ROUND_UP, BigDecimal.ROUND_HALF_UP);
+		// Power
+		else if (OPERATION_ARITH[4].equals(opcode)) return op2.pow(op1.intValue());
+		// Remain
+		else if (OPERATION_ARITH[5].equals(opcode)) return op2.remainder(op1);
+		// Factorial
+		else if (OPERATION_FACTORIAL[0].equals(opcode)) return calculateFactorial(op1);
+		// sin
+		else if (WORDOPERATION_ONENUMBER[0].equals(opcode)) return BigDecimal.valueOf(Math.sin(op1.doubleValue()));
+		// sinh
+		else if (WORDOPERATION_ONENUMBER[1].equals(opcode)) return BigDecimal.valueOf(Math.sinh(op1.doubleValue()));
+		// asin
+		else if (WORDOPERATION_ONENUMBER[2].equals(opcode)) return BigDecimal.valueOf(Math.asin(op1.doubleValue()));
+		// cos
+		else if (WORDOPERATION_ONENUMBER[3].equals(opcode)) return BigDecimal.valueOf(Math.cos(op1.doubleValue()));
+		// cosh
+		else if (WORDOPERATION_ONENUMBER[4].equals(opcode)) return BigDecimal.valueOf(Math.cosh(op1.doubleValue()));
+		// acos
+		else if (WORDOPERATION_ONENUMBER[5].equals(opcode)) return BigDecimal.valueOf(Math.acos(op1.doubleValue()));
+		// tan
+		else if (WORDOPERATION_ONENUMBER[6].equals(opcode)) return BigDecimal.valueOf(Math.tan(op1.doubleValue()));
+		// tanh
+		else if (WORDOPERATION_ONENUMBER[7].equals(opcode)) return BigDecimal.valueOf(Math.tanh(op1.doubleValue()));
+		// atan
+		else if (WORDOPERATION_ONENUMBER[8].equals(opcode)) return BigDecimal.valueOf(Math.atan(op1.doubleValue()));
+		// sqrt
+		else if (WORDOPERATION_ONENUMBER[9].equals(opcode)) return BigDecimal.valueOf(Math.sqrt(op1.doubleValue()));
+		// exp
+		else if (WORDOPERATION_ONENUMBER[10].equals(opcode)) return BigDecimal.valueOf(Math.exp(op1.doubleValue()));
+		// abs
+		else if (WORDOPERATION_ONENUMBER[11].equals(opcode)) return BigDecimal.valueOf(Math.abs(op1.doubleValue()));
+		// log
+		else if (WORDOPERATION_ONENUMBER[12].equals(opcode)) return BigDecimal.valueOf(Math.log(op1.doubleValue()));
+		// ceil
+		else if (WORDOPERATION_ONENUMBER[13].equals(opcode)) return BigDecimal.valueOf(Math.ceil(op1.doubleValue()));
+		// floor
+		else if (WORDOPERATION_ONENUMBER[14].equals(opcode)) return BigDecimal.valueOf(Math.floor(op1.doubleValue()));
+		// round
+		else if (WORDOPERATION_ONENUMBER[15].equals(opcode)) return BigDecimal.valueOf(Math.round(op1.doubleValue()));
+		// power
+		else if (WORDOPERATION_TWONUMBER[0].equals(opcode)) return op2.pow(op1.intValue());
 		
 		throw new RuntimeException("Operation Error");
 	}
@@ -419,8 +388,6 @@ public class Calculator {
 		return containWord(wordToken, WORDOPERATION_NUMBERLESS) || containWord(wordToken, WORDOPERATION_ONENUMBER)
 				|| containWord(wordToken, WORDOPERATION_TWONUMBER);
 	}
-	
-	
 	
 	/**
 	 * @function() Check a Symbol operator for Char.

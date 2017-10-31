@@ -1,13 +1,14 @@
-package study.algorithm.recursive;
-
-import java.util.Scanner;
-
 /**
  * @author Emrys.
  * Algorithm Study.
  * @Recursivefunction.
  * @FibonacciSequence.
  */
+
+package study.algorithm.recursive;
+
+import java.util.Scanner;
+
 public class FibonacciSequence {
 	
 	/**

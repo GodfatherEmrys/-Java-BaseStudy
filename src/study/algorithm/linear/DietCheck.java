@@ -1,7 +1,7 @@
 /**
  * @Study Information.
  * @Reference: Algorithm Problem Solving Strategies.
- * @MovingAverage
+ * @Problem MovingAverage
  */
 
 package study.algorithm.linear;
@@ -12,9 +12,9 @@ import java.util.Scanner;
 
 /**
  * @author Emrys.
- * #Linear function,
- * #Moving Average,
- * #Time Complexity,
+ * #Linear function
+ * #Moving Average
+ * #Time Complexity
  */
 public class DietCheck {
 	

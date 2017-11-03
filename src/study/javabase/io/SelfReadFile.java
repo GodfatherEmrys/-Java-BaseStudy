@@ -16,7 +16,8 @@ import java.io.InputStreamReader;
 /**
  * This sample class is Self Read Class by JAVA File System.
  * @author Emrys.
- *
+ * #InputStreamReader
+ * #BufferedReader
  */
 public class SelfReadFile {
 

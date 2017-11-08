@@ -32,6 +32,7 @@ public class ConvertToRecursive {
 	 * @return
 	 */
 	static int recursiveSum(int number) {
+		/* base case */
 		if(number == 1) return 1;
 		return number + recursiveSum(number - 1);
 	}

@@ -24,7 +24,7 @@ public class BoggleGame {
 							};
 	
 	public static void main(String[]args) {
-		System.out.println(hasWord(1,2,"RETTYS"));
+		System.out.println(hasWord(1, 2,"RETTYS"));
 	}
 	
 	/**

@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
  * #InputStreamReader
  * #BufferedReader
  */
-public class SelfReadFile {
+public class FileSystemL03 {
 
 	public static void main(String[]args) {
 		

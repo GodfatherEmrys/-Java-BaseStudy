@@ -1,6 +1,5 @@
 /**
  * @Study Information
- * @Reference: JAVA Programming Architecture.
  * @Content: File System.
  */
 package study.javabase.io;
@@ -12,7 +11,7 @@ import java.io.File;
  * @author Emrys
  * #Method of File Class.
  */
-public class FileEx1 {
+public class FileSystemL01 {
 
 	public static void main(String[]args) {
 		File file = new File("/Users/arthur/Documents/BaseStudy/JavaBaseStudy/src/study/javabase/io/FileEx1.java");

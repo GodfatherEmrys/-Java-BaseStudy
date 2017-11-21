@@ -1,6 +1,5 @@
 /**
  * @Study Information
- * @Reference: JAVA Programming Architecture.
  * @Content: File System.
  */
 package study.javabase.io;
